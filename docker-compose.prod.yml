@@ -5,6 +5,8 @@ services:
     image: louislam/uptime-kuma
     networks:
       - traefik-public
+    volumes: 
+      - uptime-kuma:/app/data
     deploy:
       replicas: 1
       update_config:
@@ -28,4 +30,8 @@ services:
 
 networks:
    traefik-public:
+    external: true
+
+volumes: 
+  uptime-kuma:
     external: true
